@@ -75,7 +75,10 @@ def build_dataset(is_train, args, trial):
                 else:
                     for i in range(trial+1, args.n_trials):
                         eval_folder.append(os.path.join(args.data_path, str(i + args.start_folder)))
-                    
+            
+            elif args.eval_domain == 'no_eval':
+                return None, args.n_classes
+            
             else:
                 raise NotImplementedError
 

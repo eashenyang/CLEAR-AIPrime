@@ -66,6 +66,7 @@ def get_args_parser():
     
     # EMA related parameters
     parser.add_argument('--model_ema', type=str2bool, default=True)
+    # parser.add_argument('--model_ema_decay', type=float, default=0.999, help='')
     parser.add_argument('--model_ema_decay', type=float, default=0.999, help='')
     parser.add_argument('--model_ema_force_cpu', type=str2bool, default=False, help='')
     parser.add_argument('--model_ema_eval', type=str2bool, default=True, help='Using ema to eval during training.')
@@ -158,8 +159,6 @@ def get_args_parser():
     parser.add_argument('--eval_freq', type=int, default=5)
     parser.add_argument('--dist_eval', type=str2bool, default=True,
                         help='Enabling distributed evaluation')
-    parser.add_argument('--disable_eval', type=str2bool, default=False,
-                        help='Disabling evaluation during training')
     parser.add_argument('--num_workers', default=10, type=int)
     parser.add_argument('--pin_mem', type=str2bool, default=True,
                         help='Pin CPU memory in DataLoader for more efficient (sometimes) transfer to GPU.')
@@ -186,7 +185,7 @@ def get_args_parser():
     # clear config
     parser.add_argument('--clear_dataset', type=str, default='clear100', choices=['clear10', 'clear100'],
                         help="Which clear to train")
-    parser.add_argument('--eval_domain', type=str, default='in_domain', choices=['next', 'forward','in_domain'],
+    parser.add_argument('--eval_domain', type=str, default='no_eval', choices=['next', 'forward','in_domain', 'no_eval'],
                         help="Which domain to eval")
     
     
@@ -253,8 +252,8 @@ def main(args):
         model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.gpu], find_unused_parameters=False)
         model_without_ddp = model.module
 
-    epochs_trial = [200, 200, 120, 80, 80, 60, 50, 50, 40, 40, 30]
-    # epochs_trial = [10] * 11
+    # epochs_trial = [200, 200, 120, 80, 80, 60, 50, 50, 40, 40, 30]
+    epochs_trial = [1] * 11
     for trial in range(args.n_trials):
         if len(args.resume)>0:
             last_trial = int(args.resume.split('.')[0][-1])
@@ -270,7 +269,7 @@ def main(args):
         # build dataset
         dataset_train, args.n_classes = build_dataset(is_train=True, args=args, trial=trial)
         print('Length of trial {} train dataset is {}'.format(trial, len(dataset_train)))
-        if args.disable_eval:
+        if args.eval_domain == 'no_eval':
             args.dist_eval = False
             dataset_val = None
         else:
@@ -392,7 +391,7 @@ def main(args):
                         args=args, model=model, model_without_ddp=model_without_ddp, optimizer=optimizer,
                         loss_scaler=loss_scaler, epoch=epoch, model_ema=model_ema, trial=trial)
                     
-            if (epoch + 1) % args.eval_freq == 0 and data_loader_val is not None:
+            if args.eval_domain != 'no_eval' and (epoch + 1) % args.eval_freq == 0 and data_loader_val is not None:
                 test_stats = evaluate(data_loader_val, model, device, use_amp=args.use_amp)
                 print(f"Accuracy of the model on the {len(dataset_val)} test images: {test_stats['acc1']:.1f}%")
                 if max_accuracy < test_stats["acc1"]:
@@ -421,7 +420,7 @@ def main(args):
                         max_accuracy_ema = test_stats_ema["acc1"]
                         if args.output_dir and args.save_ckpt:
                             torch.save(get_state_dict(model_ema), 
-                                       os.path.join(args.output_dir, f"model_ema{str(trial).zfill(2)}.pth"))
+                                       os.path.join(args.output_dir, f"model_ema_best_{str(trial).zfill(2)}.pth"))
                             utils.save_model(
                                 args=args, model=model, model_without_ddp=model_without_ddp, optimizer=optimizer,
                                 loss_scaler=loss_scaler, epoch="best-ema", model_ema=model_ema, trial=trial)
@@ -442,6 +441,10 @@ def main(args):
 
             if wandb_logger:
                 wandb_logger.log_epoch_metrics(log_stats)
+                
+            if epoch + 1 == args.epochs:
+                torch.save(get_state_dict(model_ema), os.path.join(args.output_dir, f"model_ema_last_{str(trial).zfill(2)}.pth"))
+                torch.save(model_without_ddp.state_dict(), os.path.join(args.output_dir, f"model_last_{str(trial).zfill(2)}.pth"))
 
     if wandb_logger and args.wandb_ckpt and args.save_ckpt and args.output_dir:
         wandb_logger.log_checkpoints()
