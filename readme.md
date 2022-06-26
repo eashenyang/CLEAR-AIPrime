@@ -24,6 +24,6 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py --clear_dataset cl
 
 # Test
 
-### After training, find models with name=='model_ema{trial}' in exp folder and move them to 'models' folder for testing, correct size of single model would be around 93Mb.
+### After training, find models with name=='model_ema_last_{trial}' in exp folder and move them to 'models' folder for testing, correct size of single model would be around 93Mb.
 ### For CLEAR100, select models trial 1-10 for testing.
 ### For CLEAR10,  select models trial 0-9 for testing.
