@@ -40,7 +40,7 @@ class CLEARPredictor(BaseCLEARPredictor):
         print("[DEBUG] Loading and Transforming Test Data...")
         transform = data_transform()
         test_data = [CLEAR10IMG(image_file_path, i, form="all", debug=False, transform=transform) for i in range(self.bucket_num)]
-        test_loaders = [DataLoader(test_data[i], shuffle=False, num_workers=4) for i in range(len(test_data))]
+        test_loaders = [DataLoader(test_data[i], shuffle=False, num_workers=4, batch_size=128) for i in range(len(test_data))]
 
         # Inference
         print("[DEBUG] Inference...")

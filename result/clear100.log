@@ -1,0 +1,208 @@
+[DEBUG] Loading models...
+[DEBUG] Loading and Transforming Test Data...
+[DEBUG] Inference...
+Evaluate timestamp 0 model on bucket 0
+Test Accuracy: 0.84
+Evaluate timestamp 0 model on bucket 1
+Test Accuracy: 0.81
+Evaluate timestamp 0 model on bucket 2
+Test Accuracy: 0.82
+Evaluate timestamp 0 model on bucket 3
+Test Accuracy: 0.82
+Evaluate timestamp 0 model on bucket 4
+Test Accuracy: 0.81
+Evaluate timestamp 0 model on bucket 5
+Test Accuracy: 0.81
+Evaluate timestamp 0 model on bucket 6
+Test Accuracy: 0.81
+Evaluate timestamp 0 model on bucket 7
+Test Accuracy: 0.81
+Evaluate timestamp 0 model on bucket 8
+Test Accuracy: 0.80
+Evaluate timestamp 0 model on bucket 9
+Test Accuracy: 0.80
+Evaluate timestamp 1 model on bucket 0
+Test Accuracy: 0.88
+Evaluate timestamp 1 model on bucket 1
+Test Accuracy: 0.87
+Evaluate timestamp 1 model on bucket 2
+Test Accuracy: 0.86
+Evaluate timestamp 1 model on bucket 3
+Test Accuracy: 0.86
+Evaluate timestamp 1 model on bucket 4
+Test Accuracy: 0.86
+Evaluate timestamp 1 model on bucket 5
+Test Accuracy: 0.86
+Evaluate timestamp 1 model on bucket 6
+Test Accuracy: 0.86
+Evaluate timestamp 1 model on bucket 7
+Test Accuracy: 0.87
+Evaluate timestamp 1 model on bucket 8
+Test Accuracy: 0.85
+Evaluate timestamp 1 model on bucket 9
+Test Accuracy: 0.85
+Evaluate timestamp 2 model on bucket 0
+Test Accuracy: 0.90
+Evaluate timestamp 2 model on bucket 1
+Test Accuracy: 0.89
+Evaluate timestamp 2 model on bucket 2
+Test Accuracy: 0.89
+Evaluate timestamp 2 model on bucket 3
+Test Accuracy: 0.89
+Evaluate timestamp 2 model on bucket 4
+Test Accuracy: 0.89
+Evaluate timestamp 2 model on bucket 5
+Test Accuracy: 0.89
+Evaluate timestamp 2 model on bucket 6
+Test Accuracy: 0.88
+Evaluate timestamp 2 model on bucket 7
+Test Accuracy: 0.89
+Evaluate timestamp 2 model on bucket 8
+Test Accuracy: 0.88
+Evaluate timestamp 2 model on bucket 9
+Test Accuracy: 0.88
+Evaluate timestamp 3 model on bucket 0
+Test Accuracy: 0.91
+Evaluate timestamp 3 model on bucket 1
+Test Accuracy: 0.91
+Evaluate timestamp 3 model on bucket 2
+Test Accuracy: 0.90
+Evaluate timestamp 3 model on bucket 3
+Test Accuracy: 0.91
+Evaluate timestamp 3 model on bucket 4
+Test Accuracy: 0.90
+Evaluate timestamp 3 model on bucket 5
+Test Accuracy: 0.90
+Evaluate timestamp 3 model on bucket 6
+Test Accuracy: 0.90
+Evaluate timestamp 3 model on bucket 7
+Test Accuracy: 0.91
+Evaluate timestamp 3 model on bucket 8
+Test Accuracy: 0.90
+Evaluate timestamp 3 model on bucket 9
+Test Accuracy: 0.90
+Evaluate timestamp 4 model on bucket 0
+Test Accuracy: 0.93
+Evaluate timestamp 4 model on bucket 1
+Test Accuracy: 0.92
+Evaluate timestamp 4 model on bucket 2
+Test Accuracy: 0.92
+Evaluate timestamp 4 model on bucket 3
+Test Accuracy: 0.92
+Evaluate timestamp 4 model on bucket 4
+Test Accuracy: 0.92
+Evaluate timestamp 4 model on bucket 5
+Test Accuracy: 0.92
+Evaluate timestamp 4 model on bucket 6
+Test Accuracy: 0.91
+Evaluate timestamp 4 model on bucket 7
+Test Accuracy: 0.92
+Evaluate timestamp 4 model on bucket 8
+Test Accuracy: 0.91
+Evaluate timestamp 4 model on bucket 9
+Test Accuracy: 0.91
+Evaluate timestamp 5 model on bucket 0
+Test Accuracy: 0.93
+Evaluate timestamp 5 model on bucket 1
+Test Accuracy: 0.93
+Evaluate timestamp 5 model on bucket 2
+Test Accuracy: 0.93
+Evaluate timestamp 5 model on bucket 3
+Test Accuracy: 0.93
+Evaluate timestamp 5 model on bucket 4
+Test Accuracy: 0.93
+Evaluate timestamp 5 model on bucket 5
+Test Accuracy: 0.93
+Evaluate timestamp 5 model on bucket 6
+Test Accuracy: 0.93
+Evaluate timestamp 5 model on bucket 7
+Test Accuracy: 0.93
+Evaluate timestamp 5 model on bucket 8
+Test Accuracy: 0.93
+Evaluate timestamp 5 model on bucket 9
+Test Accuracy: 0.92
+Evaluate timestamp 6 model on bucket 0
+Test Accuracy: 0.94
+Evaluate timestamp 6 model on bucket 1
+Test Accuracy: 0.93
+Evaluate timestamp 6 model on bucket 2
+Test Accuracy: 0.93
+Evaluate timestamp 6 model on bucket 3
+Test Accuracy: 0.94
+Evaluate timestamp 6 model on bucket 4
+Test Accuracy: 0.94
+Evaluate timestamp 6 model on bucket 5
+Test Accuracy: 0.94
+Evaluate timestamp 6 model on bucket 6
+Test Accuracy: 0.94
+Evaluate timestamp 6 model on bucket 7
+Test Accuracy: 0.94
+Evaluate timestamp 6 model on bucket 8
+Test Accuracy: 0.93
+Evaluate timestamp 6 model on bucket 9
+Test Accuracy: 0.93
+Evaluate timestamp 7 model on bucket 0
+Test Accuracy: 0.94
+Evaluate timestamp 7 model on bucket 1
+Test Accuracy: 0.94
+Evaluate timestamp 7 model on bucket 2
+Test Accuracy: 0.93
+Evaluate timestamp 7 model on bucket 3
+Test Accuracy: 0.94
+Evaluate timestamp 7 model on bucket 4
+Test Accuracy: 0.94
+Evaluate timestamp 7 model on bucket 5
+Test Accuracy: 0.94
+Evaluate timestamp 7 model on bucket 6
+Test Accuracy: 0.94
+Evaluate timestamp 7 model on bucket 7
+Test Accuracy: 0.95
+Evaluate timestamp 7 model on bucket 8
+Test Accuracy: 0.94
+Evaluate timestamp 7 model on bucket 9
+Test Accuracy: 0.94
+Evaluate timestamp 8 model on bucket 0
+Test Accuracy: 0.95
+Evaluate timestamp 8 model on bucket 1
+Test Accuracy: 0.94
+Evaluate timestamp 8 model on bucket 2
+Test Accuracy: 0.94
+Evaluate timestamp 8 model on bucket 3
+Test Accuracy: 0.94
+Evaluate timestamp 8 model on bucket 4
+Test Accuracy: 0.95
+Evaluate timestamp 8 model on bucket 5
+Test Accuracy: 0.94
+Evaluate timestamp 8 model on bucket 6
+Test Accuracy: 0.95
+Evaluate timestamp 8 model on bucket 7
+Test Accuracy: 0.95
+Evaluate timestamp 8 model on bucket 8
+Test Accuracy: 0.94
+Evaluate timestamp 8 model on bucket 9
+Test Accuracy: 0.94
+Evaluate timestamp 9 model on bucket 0
+Test Accuracy: 0.95
+Evaluate timestamp 9 model on bucket 1
+Test Accuracy: 0.94
+Evaluate timestamp 9 model on bucket 2
+Test Accuracy: 0.94
+Evaluate timestamp 9 model on bucket 3
+Test Accuracy: 0.94
+Evaluate timestamp 9 model on bucket 4
+Test Accuracy: 0.95
+Evaluate timestamp 9 model on bucket 5
+Test Accuracy: 0.95
+Evaluate timestamp 9 model on bucket 6
+Test Accuracy: 0.95
+Evaluate timestamp 9 model on bucket 7
+Test Accuracy: 0.95
+Evaluate timestamp 9 model on bucket 8
+Test Accuracy: 0.95
+Evaluate timestamp 9 model on bucket 9
+Test Accuracy: 0.95
+Weighted Average Score: 0.908
+Next-Domain Accuracy: 0.902
+In-Domain Accuracy: 0.913
+Backward Transfer Accuracy: 0.933
+Forward Transfer Accuracy: 0.882
