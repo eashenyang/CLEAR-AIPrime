@@ -22,7 +22,7 @@ from evaluation_utils.CLEAR10 import CLEAR10IMG
 from torch.utils.data import DataLoader
 
 # Import participant's prediction class
-from evaluation_setup import load_models, data_transform
+from evaluation_setup_clear10 import load_models, data_transform
 
 class CLEARPredictor(BaseCLEARPredictor):
     def __init__(self, bucket_num=10, use_gpu=True):
@@ -75,7 +75,8 @@ def main():
     parser = argparse.ArgumentParser(description="Local Evaluation Test")
     parser.add_argument(
         "--dataset-path",
-        required=True,
+        default='/home/jiawei.dong/projects/CVPR_Challenge_2022/CLEAR/clear10_test/test/labeled_images',
+        # required=True,
         dest="dataset_path",
         help="Path to dir containing extracted dataset",
     )

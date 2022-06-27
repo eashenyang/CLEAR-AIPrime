@@ -147,7 +147,7 @@ def get_args_parser():
 
     parser.add_argument('--resume', default='',
                         help='resume from checkpoint')
-    parser.add_argument('--auto_resume', type=str2bool, default=True)
+    parser.add_argument('--auto_resume', type=str2bool, default=False)
     parser.add_argument('--save_ckpt', type=str2bool, default=True)
     parser.add_argument('--save_ckpt_freq', default=5, type=int)
     parser.add_argument('--save_ckpt_num', default=3, type=int)
@@ -252,8 +252,8 @@ def main(args):
         model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.gpu], find_unused_parameters=False)
         model_without_ddp = model.module
 
-    # epochs_trial = [200, 200, 120, 80, 80, 60, 50, 50, 40, 40, 30]
-    epochs_trial = [1] * 11
+    epochs_trial = [200, 200, 120, 80, 80, 60, 50, 50, 40, 40, 30]
+    # epochs_trial = [1] * 11
     for trial in range(args.n_trials):
         if len(args.resume)>0:
             last_trial = int(args.resume.split('.')[0][-1])
@@ -369,7 +369,7 @@ def main(args):
         max_accuracy = 0.0
         if args.model_ema and args.model_ema_eval:
             max_accuracy_ema = 0.0    
-        
+        print('starting epoch:', args.start_epoch)
         for epoch in range(args.start_epoch, args.epochs):
             if args.distributed:
                 data_loader_train.sampler.set_epoch(epoch)
@@ -445,7 +445,7 @@ def main(args):
             if epoch + 1 == args.epochs:
                 torch.save(get_state_dict(model_ema), os.path.join(args.output_dir, f"model_ema_last_{str(trial).zfill(2)}.pth"))
                 torch.save(model_without_ddp.state_dict(), os.path.join(args.output_dir, f"model_last_{str(trial).zfill(2)}.pth"))
-
+        args.start_epoch = 0
     if wandb_logger and args.wandb_ckpt and args.save_ckpt and args.output_dir:
         wandb_logger.log_checkpoints()
 
