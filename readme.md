@@ -24,7 +24,7 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py --clear_dataset cl
 ```
 
 # Test
-Our results were tested on 8 x RTX3090, for more details of result, check result folder.  
+Our results were tested on 8 x RTX3090, for more details of results, check 'result' folder.  
 Performance between single GPU and multiple GPUs might be different.  
 After training, find models with name=='model_ema_last_{trial}' or name=='model_last_{trial}' in 'exp' folder and move them to 'models' folder for testing, correct size of single model would be around 93Mb.  
 For CLEAR100, select models trial 1-10 for testing.  
